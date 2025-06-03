@@ -17,6 +17,140 @@
             color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .navbar-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .navbar-logo span {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: rgba(79, 172, 254, 0.1);
+            color: #4facfe;
+            transform: translateY(-1px);
+        }
+
+        .navbar-languages {
+            display: flex;
+            gap: 8px;
+        }
+
+        .navbar-lang-btn {
+            padding: 6px 12px;
+            border: 1px solid #4facfe;
+            background: transparent;
+            color: #4facfe;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-lang-btn.active {
+            background: #4facfe;
+            color: white;
+        }
+
+        .navbar-lang-btn:hover {
+            background: #4facfe;
+            color: white;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav .nav-link {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
         }
 
         .container {
@@ -29,15 +163,13 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            margin: 20px auto;
+            margin: 90px auto 20px auto;
             padding: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
             margin-bottom: 50px;
             padding-bottom: 30px;
             border-bottom: 2px solid #e9ecef;
@@ -46,7 +178,9 @@
         .logo {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .logo-icon {
@@ -395,12 +529,19 @@
         @media (max-width: 768px) {
             .main-content {
                 padding: 20px;
-                margin: 10px;
+                margin: 90px 10px 10px 10px;
             }
             
-            header {
-                flex-direction: column;
-                gap: 20px;
+            .navbar-nav {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .navbar-languages {
+                display: none;
             }
 
             .checkmarks {
@@ -414,26 +555,76 @@
             .logo h1 {
                 font-size: 1.2rem;
             }
+
+            .navbar-content {
+                padding: 0 15px;
+            }
+
+            .navbar-logo span {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo" onclick="scrollToTop()">
+                <img src="images/LOGO_MediXtract.png" alt="MediXtract Logo">
+                <span>MediXtract</span>
+            </div>
+            
+            <div class="navbar-nav">
+                <a href="#vision" class="nav-link" data-en="Vision" data-de="Vision">Vision</a>
+                <a href="#architecture" class="nav-link" data-en="Architecture" data-de="Architektur">Architecture</a>
+                <a href="#features" class="nav-link" data-en="Features" data-de="Funktionen">Features</a>
+                <a href="#roadmap" class="nav-link" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
+                <a href="#budget" class="nav-link" data-en="Budget" data-de="Budget">Budget</a>
+                <a href="#tech" class="nav-link" data-en="Technology" data-de="Technologie">Technology</a>
+            </div>
+
+            <div class="navbar-languages">
+                <button class="navbar-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                <button class="navbar-lang-btn" onclick="switchLanguage('de')">DE</button>
+            </div>
+
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#vision" class="nav-link" onclick="closeMobileMenu()" data-en="Vision" data-de="Vision">Vision</a>
+        <a href="#architecture" class="nav-link" onclick="closeMobileMenu()" data-en="Architecture" data-de="Architektur">Architecture</a>
+        <a href="#features" class="nav-link" onclick="closeMobileMenu()" data-en="Features" data-de="Funktionen">Features</a>
+        <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
+        <a href="#budget" class="nav-link" onclick="closeMobileMenu()" data-en="Budget" data-de="Budget">Budget</a>
+        <a href="#tech" class="nav-link" onclick="closeMobileMenu()" data-en="Technology" data-de="Technologie">Technology</a>
+        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+            <button class="navbar-lang-btn" onclick="switchLanguage('en'); closeMobileMenu();">EN</button>
+            <button class="navbar-lang-btn" onclick="switchLanguage('de'); closeMobileMenu();">DE</button>
+        </div>
+    </div>
+
     <div class="container">
         <div class="main-content">
             <header>
-                <div class="logo">
-                    <div class="logo-icon">🏥</div>
+                <div class="logo" onclick="scrollToTop()" style="cursor: pointer;">
+                    <div class="logo-icon">
+                        <img src="images/LOGO_MediXtract.png" alt="MediXtract Logo">
+                    </div>
                     <h1>Advanced Project Proposal: Multi-Agent AI System for Automatic Patient Data Extraction</h1>
-                </div>
-                <div class="language-switcher">
-                    <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
-                    <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
                 </div>
             </header>
 
             <!-- English Content -->
             <div id="en-content" class="language-content active">
-                <div class="vision">
+                <div class="vision" id="vision">
                     <h2>🌍 Overall Vision</h2>
                     <div class="vision-description">
                         We aim to build a <strong>modular, intelligent system</strong> that automates the extraction of structured patient data from unstructured clinical documents (mostly PDFs and images), validates it, stores it safely, and presents it in accessible, editable formats (like Excel).
@@ -448,7 +639,7 @@
                     </div>
                 </div>
 
-                <div class="architecture">
+                <div class="architecture" id="architecture">
                     <h3>🏗 Layered System Architecture</h3>
                     <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #6c757d;">
                         We break the system into <strong>four main layers</strong>, each modular and replaceable.
@@ -555,7 +746,7 @@
                     </div>
                 </div>
 
-                <div class="advanced-features">
+                <div class="advanced-features" id="features">
                     <h3>⚙️ Advanced Features</h3>
                     <div class="feature-grid">
                         <div class="feature-item">
@@ -598,7 +789,7 @@
                     </div>
                 </div>
 
-                <div class="roadmap">
+                <div class="roadmap" id="roadmap">
                     <h3>🛣 Long-term Roadmap</h3>
                     <div class="roadmap-table">
                         <table>
@@ -634,7 +825,7 @@
                     </div>
                 </div>
 
-                <div class="budget-section">
+                <div class="budget-section" id="budget">
                     <h3>📊 Budget Considerations</h3>
                     <div class="cost-drivers">
                         <h4>Main cost drivers:</h4>
@@ -672,7 +863,7 @@
                     </div>
                 </div>
 
-                <div class="tech-table">
+                <div class="tech-table" id="tech">
                     <h3>🔑 Key Technologies (Explained Simply)</h3>
                     <table>
                         <thead>
@@ -717,7 +908,7 @@
 
             <!-- German Content -->
             <div id="de-content" class="language-content">
-                <div class="vision">
+                <div class="vision" id="vision-de">
                     <h2>🌍 Gesamtvision</h2>
                     <div class="vision-description">
                         Wir zielen darauf ab, ein <strong>modulares, intelligentes System</strong> zu entwickeln, das die Extraktion strukturierter Patientendaten aus unstrukturierten klinischen Dokumenten (hauptsächlich PDFs und Bilder) automatisiert, validiert, sicher speichert und in zugänglichen, bearbeitbaren Formaten (wie Excel) präsentiert.
@@ -732,7 +923,7 @@
                     </div>
                 </div>
 
-                <div class="architecture">
+                <div class="architecture" id="architecture-de">
                     <h3>🏗 Geschichtete Systemarchitektur</h3>
                     <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #6c757d;">
                         Wir unterteilen das System in <strong>vier Hauptschichten</strong>, jede modular und austauschbar.
@@ -839,7 +1030,7 @@
                     </div>
                 </div>
 
-                <div class="advanced-features">
+                <div class="advanced-features" id="features-de">
                     <h3>⚙️ Erweiterte Funktionen</h3>
                     <div class="feature-grid">
                         <div class="feature-item">
@@ -882,7 +1073,7 @@
                     </div>
                 </div>
 
-                <div class="roadmap">
+                <div class="roadmap" id="roadmap-de">
                     <h3>🛣 Langzeit-Fahrplan</h3>
                     <div class="roadmap-table">
                         <table>
@@ -918,7 +1109,7 @@
                     </div>
                 </div>
 
-                <div class="budget-section">
+                <div class="budget-section" id="budget-de">
                     <h3>📊 Budget-Überlegungen</h3>
                     <div class="cost-drivers">
                         <h4>Hauptkostentreiber:</h4>
@@ -956,7 +1147,7 @@
                     </div>
                 </div>
 
-                <div class="tech-table">
+                <div class="tech-table" id="tech-de">
                     <h3>🔑 Schlüsseltechnologien (Einfach Erklärt)</h3>
                     <table>
                         <thead>
@@ -1002,7 +1193,28 @@
     </div>
 
     <script>
+        let currentLang = 'en';
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
+        }
+
         function switchLanguage(lang) {
+            currentLang = lang;
+            
             // Hide all content
             document.querySelectorAll('.language-content').forEach(content => {
                 content.classList.remove('active');
@@ -1011,17 +1223,94 @@
             // Show selected language content
             document.getElementById(lang + '-content').classList.add('active');
             
-            // Update button states
-            document.querySelectorAll('.lang-btn').forEach(btn => {
+            // Update button states in navbar
+            document.querySelectorAll('.navbar-lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Activate clicked button
-            event.target.classList.add('active');
+            // Activate clicked buttons (both navbar and mobile)
+            document.querySelectorAll('.navbar-lang-btn').forEach(btn => {
+                if ((lang === 'en' && btn.textContent === 'EN') || 
+                    (lang === 'de' && btn.textContent === 'DE')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update navigation text
+            updateNavText(lang);
             
             // Update document language
             document.documentElement.lang = lang;
         }
+
+        function updateNavText(lang) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const text = link.getAttribute('data-' + lang);
+                if (text) {
+                    link.textContent = text;
+                }
+            });
+        }
+
+        // Add smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle navigation clicks
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const suffix = currentLang === 'de' ? '-de' : '';
+                    const targetElement = document.getElementById(targetId + suffix);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    closeMobileMenu();
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileToggle = document.querySelector('.mobile-menu-toggle');
+                
+                if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+
+            // Initialize navigation text
+            updateNavText('en');
+        });
+
+        // Handle scroll to highlight active section
+        window.addEventListener('scroll', function() {
+            const sections = ['vision', 'architecture', 'features', 'roadmap', 'budget', 'tech'];
+            const suffix = currentLang === 'de' ? '-de' : '';
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section + suffix);
+                const navLink = document.querySelector(`a[href="#${section}"]`);
+                
+                if (element && navLink) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.style.color = '#2c3e50';
+                            link.style.background = 'transparent';
+                        });
+                        navLink.style.color = '#4facfe';
+                        navLink.style.background = 'rgba(79, 172, 254, 0.1)';
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
