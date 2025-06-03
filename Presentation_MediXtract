@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Project Proposal: Multi-Agent AI System for Automatic Patient Data Extraction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 20px auto;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo h1 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 700;
+            max-width: 400px;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #4facfe;
+            background: transparent;
+            color: #4facfe;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: #4facfe;
+            color: white;
+        }
+
+        .lang-btn:hover {
+            background: #4facfe;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .vision {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .vision h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vision-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #495057;
+        }
+
+        .checkmarks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .checkmark-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkmark-item::before {
+            content: "✅";
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .architecture {
+            margin-bottom: 60px;
+        }
+
+        .architecture h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .layer {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 6px solid #4facfe;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .layer h4 {
+            color: #4facfe;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .layer-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .subsection {
+            margin-bottom: 20px;
+        }
+
+        .subsection h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .subsection ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .subsection li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #495057;
+        }
+
+        .subsection li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .advanced-features {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .advanced-features h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-item h4 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-item h4::before {
+            content: "✅";
+            font-size: 1rem;
+        }
+
+        .roadmap {
+            margin-bottom: 50px;
+        }
+
+        .roadmap h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .roadmap-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .roadmap-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .roadmap-table th {
+            background: #4facfe;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .roadmap-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+
+        .roadmap-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .phase-name {
+            font-weight: 600;
+            color: #4facfe;
+            min-width: 100px;
+        }
+
+        .budget-section {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .budget-section h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .cost-drivers {
+            margin-bottom: 30px;
+        }
+
+        .cost-drivers h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .advantages {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .advantages h4 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .advantages h4::before {
+            content: "✅";
+        }
+
+        .tech-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+        }
+
+        .tech-table h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .tech-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tech-table th {
+            background: #4facfe;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .tech-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: #4facfe;
+            min-width: 200px;
+        }
+
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .checkmarks {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <header>
+                <div class="logo">
+                    <div class="logo-icon">🏥</div>
+                    <h1>Advanced Project Proposal: Multi-Agent AI System for Automatic Patient Data Extraction</h1>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                    <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+                </div>
+            </header>
+
+            <!-- English Content -->
+            <div id="en-content" class="language-content active">
+                <div class="vision">
+                    <h2>🌍 Overall Vision</h2>
+                    <div class="vision-description">
+                        We aim to build a <strong>modular, intelligent system</strong> that automates the extraction of structured patient data from unstructured clinical documents (mostly PDFs and images), validates it, stores it safely, and presents it in accessible, editable formats (like Excel).
+                    </div>
+                    <p><strong>This system is designed to:</strong></p>
+                    <div class="checkmarks">
+                        <div class="checkmark-item">Run offline on a laptop traveling between hospitals</div>
+                        <div class="checkmark-item">Reduce human workload and errors</div>
+                        <div class="checkmark-item">Continuously improve over time through human feedback</div>
+                        <div class="checkmark-item">Scale later to centralized or cloud-based systems if needed</div>
+                        <div class="checkmark-item">Respect sensitive data handling and privacy</div>
+                    </div>
+                </div>
+
+                <div class="architecture">
+                    <h3>🏗 Layered System Architecture</h3>
+                    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #6c757d;">
+                        We break the system into <strong>four main layers</strong>, each modular and replaceable.
+                    </p>
+                    
+                    <div class="layer">
+                        <h4>1️⃣ Input Layer</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Source documents:</h5>
+                                <ul>
+                                    <li>Patient PDFs, scanned images, lab reports, discharge summaries</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Preprocessing:</h5>
+                                <ul>
+                                    <li>If PDF contains text → parse directly</li>
+                                    <li>If PDF/image contains only image → apply <strong>OCR (Optical Character Recognition)</strong> (e.g., Tesseract or commercial solutions like Google Vision API)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Normalization:</h5>
+                                <ul>
+                                    <li>Standardize encodings, handle noisy scans, correct rotations, apply image enhancements if necessary</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>2️⃣ Extraction Layer</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Core component: Multi-AI agent system, where each agent specializes in:</h5>
+                                <ul>
+                                    <li>Document understanding (layout, section detection)</li>
+                                    <li>Named entity recognition (detecting patient names, dates, measurements, diagnoses)</li>
+                                    <li>Relationship extraction (linking, e.g., lab result X → date Y → patient Z)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>AI models:</h5>
+                                <ul>
+                                    <li>Use foundation models (Claude, GPT-4o, Gemini) via API to accelerate extraction</li>
+                                    <li>For highly specialized terms (medical jargon), optionally fine-tune smaller domain-specific models or add rule-based patterns</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Caching & optimization:</h5>
+                                <ul>
+                                    <li>Reduce token/API costs by caching reusable prompt components</li>
+                                    <li>Identify "frequent patterns" (e.g., lab report templates) and treat them with lightweight local models to save costs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>3️⃣ Data Layer</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Temporary data store:</h5>
+                                <ul>
+                                    <li>MongoDB (local, document-based DB, good for semi-structured data)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Validation mechanisms:</h5>
+                                <ul>
+                                    <li>Schema validation using tools like Pydantic (define expected formats, ranges, types)</li>
+                                    <li>Outlier detection: flag unusual values (e.g., impossible lab values) for human review</li>
+                                    <li>Confidence scores: attach uncertainty measures to each extracted field</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Audit & logging:</h5>
+                                <ul>
+                                    <li>Keep traceable logs of all extraction steps, making sure we can trace back any mistake to its origin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>4️⃣ Output & User Layer</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Excel generation:</h5>
+                                <ul>
+                                    <li>Automatically generate structured Excel files with correct column mapping</li>
+                                    <li>Use libraries like pandas + openpyxl (Python)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>User interface (UI):</h5>
+                                <ul>
+                                    <li>Built in Ruby on Rails (or a lightweight alternative like Flask/FastAPI + React)</li>
+                                    <li>Key functions: upload documents, monitor progress, review flagged entries, download results</li>
+                                    <li>Provide an admin dashboard showing statistics, error rates, token usage, and system performance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="advanced-features">
+                    <h3>⚙️ Advanced Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>Human-in-the-loop validation:</h4>
+                            <ul>
+                                <li>Users can review low-confidence or flagged outputs</li>
+                                <li>Provide corrections that are stored as new training examples (for supervised improvement later)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Active learning & continuous improvement:</h4>
+                            <ul>
+                                <li>Over time, the system prioritizes learning from human feedback, refining prompts or models</li>
+                                <li>This can eventually reduce human review needs by improving auto-validation accuracy</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Scalability and future cloud migration:</h4>
+                            <ul>
+                                <li>Even though the system is offline-first, it is designed to be modular</li>
+                                <li>If hospitals later decide to centralize, the system can migrate components to cloud services (e.g., cloud-hosted MongoDB, cloud AI models, or even a microservices backend)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Cost management strategies:</h4>
+                            <ul>
+                                <li>API costs depend on which AI provider (Claude, Gemini, GPT) and how many tokens are processed</li>
+                                <li>Advantage: <strong>pay-as-you-go model</strong> → we only pay for what we use, no need for upfront heavy server investment</li>
+                                <li>Strategies include batching documents, using cheaper fallback models, or pre-filtering to reduce unnecessary API calls</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Data privacy and governance:</h4>
+                            <ul>
+                                <li>Strict local storage (no cloud) during extraction</li>
+                                <li>Encrypted local database if needed</li>
+                                <li>Optional anonymization modules (e.g., masking patient names) if exporting shared reports</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap">
+                    <h3>🛣 Long-term Roadmap</h3>
+                    <div class="roadmap-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Phase</th>
+                                    <th>Goal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="phase-name">Phase 1</td>
+                                    <td>Build local prototype with basic document extraction, Excel export, and minimal UI.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 2</td>
+                                    <td>Add human validation, feedback loop, and basic error handling.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 3</td>
+                                    <td>Optimize costs, introduce caching strategies, monitor API/token use.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 4</td>
+                                    <td>Explore fine-tuning or rule-based enhancements for edge cases.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 5</td>
+                                    <td>Optional: Scale up to centralized/cloud infrastructure if needed.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="budget-section">
+                    <h3>📊 Budget Considerations</h3>
+                    <div class="cost-drivers">
+                        <h4>Main cost drivers:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                AI API usage (Claude, Gemini, GPT) → charged per token processed
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                Potential OCR services (if using commercial APIs)
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                Local hardware (laptop) and local storage
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="advantages">
+                        <h4>Advantages of this budget model:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                We only pay based on actual use — no need to invest in costly server infrastructure upfront
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                We can prototype and test with limited data at low cost
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                We have flexibility to scale up or down based on project needs
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-table">
+                    <h3>🔑 Key Technologies (Explained Simply)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technology</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tech-name">Docker</td>
+                                <td>Packages the full system so it runs anywhere, same way.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">MongoDB</td>
+                                <td>Stores extracted data in a flexible, easy-to-query format.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Tesseract / OCR</td>
+                                <td>Reads text from image-based documents.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Claude, Gemini, GPT</td>
+                                <td>AI models that understand and extract key information.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">n8n / Python</td>
+                                <td>Automates steps and validates data formats.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">pandas / openpyxl</td>
+                                <td>Creates Excel files programmatically.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Ruby on Rails</td>
+                                <td>Provides a clean interface for users to interact with.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- German Content -->
+            <div id="de-content" class="language-content">
+                <div class="vision">
+                    <h2>🌍 Gesamtvision</h2>
+                    <div class="vision-description">
+                        Wir zielen darauf ab, ein <strong>modulares, intelligentes System</strong> zu entwickeln, das die Extraktion strukturierter Patientendaten aus unstrukturierten klinischen Dokumenten (hauptsächlich PDFs und Bilder) automatisiert, validiert, sicher speichert und in zugänglichen, bearbeitbaren Formaten (wie Excel) präsentiert.
+                    </div>
+                    <p><strong>Dieses System ist darauf ausgelegt:</strong></p>
+                    <div class="checkmarks">
+                        <div class="checkmark-item">Offline auf einem Laptop zu laufen, der zwischen Krankenhäusern reist</div>
+                        <div class="checkmark-item">Menschliche Arbeitsbelastung und Fehler zu reduzieren</div>
+                        <div class="checkmark-item">Sich kontinuierlich durch menschliches Feedback zu verbessern</div>
+                        <div class="checkmark-item">Später auf zentralisierte oder cloud-basierte Systeme zu skalieren, falls nötig</div>
+                        <div class="checkmark-item">Sensible Datenverarbeitung und Datenschutz zu respektieren</div>
+                    </div>
+                </div>
+
+                <div class="architecture">
+                    <h3>🏗 Geschichtete Systemarchitektur</h3>
+                    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #6c757d;">
+                        Wir unterteilen das System in <strong>vier Hauptschichten</strong>, jede modular und austauschbar.
+                    </p>
+                    
+                    <div class="layer">
+                        <h4>1️⃣ Eingabeebene</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Quelldokumente:</h5>
+                                <ul>
+                                    <li>Patienten-PDFs, gescannte Bilder, Laborberichte, Entlassungsberichte</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Vorverarbeitung:</h5>
+                                <ul>
+                                    <li>Falls PDF Text enthält → direkt parsen</li>
+                                    <li>Falls PDF/Bild nur Bild enthält → <strong>OCR (Optische Zeichenerkennung)</strong> anwenden (z.B. Tesseract oder kommerzielle Lösungen wie Google Vision API)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Normalisierung:</h5>
+                                <ul>
+                                    <li>Kodierungen standardisieren, verrauschte Scans behandeln, Rotationen korrigieren, Bildverbesserungen anwenden falls nötig</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>2️⃣ Extraktionsebene</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Kernkomponente: Multi-KI-Agentensystem, wobei jeder Agent sich spezialisiert auf:</h5>
+                                <ul>
+                                    <li>Dokumentverständnis (Layout, Sektionserkennung)</li>
+                                    <li>Named Entity Recognition (Erkennung von Patientennamen, Daten, Messungen, Diagnosen)</li>
+                                    <li>Beziehungsextraktion (Verknüpfung, z.B. Laborergebnis X → Datum Y → Patient Z)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>KI-Modelle:</h5>
+                                <ul>
+                                    <li>Nutzung von Foundation-Modellen (Claude, GPT-4o, Gemini) via API zur Beschleunigung der Extraktion</li>
+                                    <li>Für hochspezialisierte Begriffe (medizinischer Jargon), optional Fine-Tuning kleinerer domänenspezifischer Modelle oder regelbasierte Muster hinzufügen</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Caching & Optimierung:</h5>
+                                <ul>
+                                    <li>Token/API-Kosten reduzieren durch Caching wiederverwendbarer Prompt-Komponenten</li>
+                                    <li>"Häufige Muster" identifizieren (z.B. Laborberichtvorlagen) und mit leichtgewichtigen lokalen Modellen behandeln, um Kosten zu sparen</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>3️⃣ Datenebene</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Temporärer Datenspeicher:</h5>
+                                <ul>
+                                    <li>MongoDB (lokal, dokumentbasierte DB, gut für semi-strukturierte Daten)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Validierungsmechanismen:</h5>
+                                <ul>
+                                    <li>Schema-Validierung mit Tools wie Pydantic (erwartete Formate, Bereiche, Typen definieren)</li>
+                                    <li>Ausreißererkennung: ungewöhnliche Werte (z.B. unmögliche Laborwerte) für menschliche Überprüfung markieren</li>
+                                    <li>Vertrauenswerte: Unsicherheitsmaße an jedes extrahierte Feld anhängen</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Audit & Protokollierung:</h5>
+                                <ul>
+                                    <li>Nachverfolgbare Protokolle aller Extraktionsschritte führen, um sicherzustellen, dass wir jeden Fehler zu seinem Ursprung zurückverfolgen können</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <h4>4️⃣ Ausgabe- & Benutzerebene</h4>
+                        <div class="layer-content">
+                            <div class="subsection">
+                                <h5>Excel-Generierung:</h5>
+                                <ul>
+                                    <li>Automatische Generierung strukturierter Excel-Dateien mit korrekter Spaltenzuordnung</li>
+                                    <li>Verwendung von Bibliotheken wie pandas + openpyxl (Python)</li>
+                                </ul>
+                            </div>
+                            <div class="subsection">
+                                <h5>Benutzeroberfläche (UI):</h5>
+                                <ul>
+                                    <li>Entwickelt in Ruby on Rails (oder einer leichtgewichtigen Alternative wie Flask/FastAPI + React)</li>
+                                    <li>Hauptfunktionen: Dokumente hochladen, Fortschritt überwachen, markierte Einträge überprüfen, Ergebnisse herunterladen</li>
+                                    <li>Admin-Dashboard mit Statistiken, Fehlerquoten, Token-Verbrauch und Systemleistung bereitstellen</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="advanced-features">
+                    <h3>⚙️ Erweiterte Funktionen</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>Human-in-the-Loop-Validierung:</h4>
+                            <ul>
+                                <li>Benutzer können Ausgaben mit geringem Vertrauen oder markierte Ausgaben überprüfen</li>
+                                <li>Korrekturen bereitstellen, die als neue Trainingsbeispiele gespeichert werden (für spätere überwachte Verbesserung)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Aktives Lernen & kontinuierliche Verbesserung:</h4>
+                            <ul>
+                                <li>Mit der Zeit priorisiert das System das Lernen aus menschlichem Feedback und verfeinert Prompts oder Modelle</li>
+                                <li>Dies kann schließlich den Bedarf an menschlicher Überprüfung reduzieren, indem die Auto-Validierungsgenauigkeit verbessert wird</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Skalierbarkeit und zukünftige Cloud-Migration:</h4>
+                            <ul>
+                                <li>Obwohl das System offline-first ist, ist es modular designt</li>
+                                <li>Falls Krankenhäuser später zentralisieren möchten, kann das System Komponenten zu Cloud-Services migrieren (z.B. cloud-gehostete MongoDB, Cloud-KI-Modelle oder sogar ein Microservices-Backend)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Kostenmanagement-Strategien:</h4>
+                            <ul>
+                                <li>API-Kosten hängen davon ab, welcher KI-Anbieter (Claude, Gemini, GPT) und wie viele Token verarbeitet werden</li>
+                                <li>Vorteil: <strong>Pay-as-you-go-Modell</strong> → wir zahlen nur für das, was wir nutzen, keine Notwendigkeit für große Vorabinvestitionen in Server-Infrastruktur</li>
+                                <li>Strategien umfassen Batch-Verarbeitung von Dokumenten, günstigere Fallback-Modelle oder Vor-Filterung zur Reduzierung unnötiger API-Aufrufe</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Datenschutz und Governance:</h4>
+                            <ul>
+                                <li>Strenge lokale Speicherung (keine Cloud) während der Extraktion</li>
+                                <li>Verschlüsselte lokale Datenbank falls nötig</li>
+                                <li>Optionale Anonymisierungsmodule (z.B. Maskierung von Patientennamen) beim Export geteilter Berichte</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap">
+                    <h3>🛣 Langzeit-Fahrplan</h3>
+                    <div class="roadmap-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Phase</th>
+                                    <th>Ziel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="phase-name">Phase 1</td>
+                                    <td>Lokalen Prototyp mit grundlegender Dokumentextraktion, Excel-Export und minimaler UI entwickeln.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 2</td>
+                                    <td>Menschliche Validierung, Feedback-Schleife und grundlegende Fehlerbehandlung hinzufügen.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 3</td>
+                                    <td>Kosten optimieren, Caching-Strategien einführen, API/Token-Nutzung überwachen.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 4</td>
+                                    <td>Fine-Tuning oder regelbasierte Verbesserungen für Sonderfälle erkunden.</td>
+                                </tr>
+                                <tr>
+                                    <td class="phase-name">Phase 5</td>
+                                    <td>Optional: Auf zentralisierte/Cloud-Infrastruktur skalieren falls nötig.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="budget-section">
+                    <h3>📊 Budget-Überlegungen</h3>
+                    <div class="cost-drivers">
+                        <h4>Hauptkostentreiber:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                KI-API-Nutzung (Claude, Gemini, GPT) → abgerechnet pro verarbeiteten Token
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                Potenzielle OCR-Services (bei Nutzung kommerzieller APIs)
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #856404; font-weight: bold;">•</span>
+                                Lokale Hardware (Laptop) und lokaler Speicher
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="advantages">
+                        <h4>Vorteile dieses Budget-Modells:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                Wir zahlen nur basierend auf tatsächlicher Nutzung — keine Notwendigkeit für kostspielige Server-Infrastruktur-Vorabinvestitionen
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                Wir können mit begrenzten Daten kostengünstig prototypisieren und testen
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #155724; font-weight: bold;">•</span>
+                                Wir haben Flexibilität, basierend auf Projektanforderungen zu skalieren
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-table">
+                    <h3>🔑 Schlüsseltechnologien (Einfach Erklärt)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technologie</th>
+                                <th>Zweck</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tech-name">Docker</td>
+                                <td>Verpackt das gesamte System, sodass es überall gleich läuft.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">MongoDB</td>
+                                <td>Speichert extrahierte Daten in einem flexiblen, leicht abfragbaren Format.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Tesseract / OCR</td>
+                                <td>Liest Text aus bildbasierten Dokumenten.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Claude, Gemini, GPT</td>
+                                <td>KI-Modelle, die Schlüsselinformationen verstehen und extrahieren.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">n8n / Python</td>
+                                <td>Automatisiert Schritte und validiert Datenformate.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">pandas / openpyxl</td>
+                                <td>Erstellt Excel-Dateien programmatisch.</td>
+                            </tr>
+                            <tr>
+                                <td class="tech-name">Ruby on Rails</td>
+                                <td>Stellt eine saubere Benutzeroberfläche zur Interaktion bereit.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all content
+            document.querySelectorAll('.language-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected language content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Activate clicked button
+            event.target.classList.add('active');
+            
+            // Update document language
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
