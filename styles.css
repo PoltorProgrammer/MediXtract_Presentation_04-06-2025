@@ -622,7 +622,7 @@ p {
   content: "";
   position: absolute;
   left: 0;
-  top: 1rem;
+  top: 1.35rem;
   width: 0.5rem;
   height: 0.5rem;
   background: var(--primary-light);
@@ -903,7 +903,7 @@ p {
     content: "";
     position: absolute;
     left: 0;
-    top: 18px;
+    top: 22px;
     width: 8px;
     height: 8px;
     background-color: #64748b;
@@ -1095,6 +1095,7 @@ p {
     content: "→";
     position: absolute;
     left: 0;
+	top: 10px;
     color: #2563eb;
     font-weight: bold;
     font-size: 1.2rem;
