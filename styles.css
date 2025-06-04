@@ -585,51 +585,48 @@ p {
 }
 
 .subsection {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .subsection:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .subsection h5 {
-    color: var(--text-dark);
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .subsection h5 i {
-    color: var(--primary);
-    font-size: 0.9rem;
+  color: var(--primary);
 }
 
 .subsection ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .subsection li {
-    padding: 0.5rem 0;
-    padding-left: 1.8rem;
-    position: relative;
-    color: var(--text-light);
-    word-wrap: break-word;
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-medium);
 }
 
 .subsection li:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 14px;
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary-light);
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--primary-light);
+  border-radius: 50%;
 }
 
 /* Features Section */
