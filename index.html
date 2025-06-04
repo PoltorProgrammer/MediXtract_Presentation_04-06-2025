@@ -155,15 +155,15 @@
                         <div class="subsection">
                             <h5><i class="fas fa-cogs"></i> Preprocessing:</h5>
                             <ul>
-                                <li>If PDF contains text → parse directly</li>
-                                <li>If PDF/image contains only image → apply <strong>OCR (Optical Character Recognition)</strong> (e.g., Tesseract or commercial solutions like Google Vision API)</li>
+                                <li>If the PDF contains text, it can be parsed directly</li>
+                                <li>If the PDF contains only an image, <strong>OCR (Optical Character Recognition)</strong> should be applied, using tools such as Tesseract or commercial solutions like the Google Vision API</li>
                             </ul>
                         </div>
                         <div class="subsection">
-                            <h5><i class="fas fa-broom"></i> Normalization:</h5>
-                            <ul>
-                                <li>Standardize encodings, handle noisy scans, correct rotations, apply image enhancements if necessary</li>
-                            </ul>
+                            <h5><i class="fas fa-user-secret"></i> Anonymization:</h5>
+			    <ul>
+    <				<li>Remove patient identifiers (e.g., name, ID, date of birth) and redact sensitive metadata</li>
+			    </ul>
                         </div>
                     </div>
                 </div>
@@ -175,22 +175,22 @@
                             <h5><i class="fas fa-robot"></i> Core component: Multi-AI agent system, where each agent specializes in:</h5>
                             <ul>
                                 <li>Document understanding (layout, section detection)</li>
-                                <li>Named entity recognition (detecting patient names, dates, measurements, diagnoses)</li>
-                                <li>Relationship extraction (linking, e.g., lab result X → date Y → patient Z)</li>
+                                <li>Information extraction</li>
+                                <li>Structuring & Validation</li>
                             </ul>
                         </div>
                         <div class="subsection">
                             <h5><i class="fas fa-microchip"></i> AI models:</h5>
                             <ul>
                                 <li>Use foundation models (Claude, GPT-4o, Gemini) via API to accelerate extraction</li>
-                                <li>For highly specialized terms (medical jargon), optionally fine-tune smaller domain-specific models or add rule-based patterns</li>
+                                <li>Optionally provide a glossary to support understanding of highly specialized terms (e.g., medical jargon)</li>
                             </ul>
                         </div>
                         <div class="subsection">
                             <h5><i class="fas fa-tachometer-alt"></i> Caching & optimization:</h5>
                             <ul>
                                 <li>Reduce token/API costs by caching reusable prompt components</li>
-                                <li>Identify "frequent patterns" (e.g., lab report templates) and treat them with lightweight local models to save costs</li>
+                                <li>Enable general cost savings through optional batch processing</li>
                             </ul>
                         </div>
                     </div>
@@ -283,28 +283,15 @@
                             <i class="fas fa-expand-arrows-alt"></i>
                         </div>
                         <h4>Scalability and future cloud migration</h4>
-                        <p>Start small, scale big when needed with our flexible architecture.</p>
-                        <ul>
-                            <li>Offline-first but designed to be modular</li>
-                            <li>Easy migration to cloud services when needed</li>
-                            <li>Support for centralized operations or microservices backend</li>
-                        </ul>
+                        <p>Scalable and interoperable by design, thanks to containerization and standardized protocols.</p>
+			<ul>
+			  <li>Docker-based deployment ensures consistent and portable environments across systems</li>
+			  <li>Integrates MCP (Model Context Protocol) to standardize AI access to external tools and data sources</li>
+			  <li>Implements A2A (Agent-to-Agent Protocol) for efficient inter-agent communication and task coordination</li>
+			  <li>Supports AI-UI protocol to facilitate standardized interactions between AI agents and user interfaces</li>
+			</ul>
                     </div>
-                    
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <h4>Cost management strategies</h4>
-                        <p>Optimize resource usage with intelligent cost controls.</p>
-                        <ul>
-                            <li>Pay-as-you-go model for API usage</li>
-                            <li>Batch processing to minimize API calls</li>
-                            <li>Pre-filtering and caching to reduce token consumption</li>
-                            <li>Cheaper fallback models for routine tasks</li>
-                        </ul>
-                    </div>
-                    
+			
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -313,7 +300,6 @@
                         <p>Keep sensitive patient data secure with comprehensive protections.</p>
                         <ul>
                             <li>Strict local storage during extraction</li>
-                            <li>Optional encrypted database</li>
                             <li>Anonymization modules for shared reports</li>
                             <li>Compliance with healthcare data regulations</li>
                         </ul>
