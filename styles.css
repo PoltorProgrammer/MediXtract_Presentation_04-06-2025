@@ -992,6 +992,190 @@ p {
     display: inline-block;
 }
 
+/* Detailed Cost Analysis Styles */
+.detailed-cost-analysis {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.detailed-cost-analysis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.detailed-cost-analysis h4 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.detailed-cost-analysis h5 {
+    color: var(--text-dark);
+    margin: 2rem 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 0.5rem;
+}
+
+.detailed-cost-analysis h5 i {
+    color: var(--primary);
+}
+
+.cost-scenario {
+    margin-bottom: 2rem;
+}
+
+.cost-scenario p {
+    background: rgba(67, 97, 238, 0.08);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin: 0;
+    border-left: 4px solid var(--primary);
+}
+
+.token-calculation ul,
+.additional-considerations ul,
+.development-vs-api ul {
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.token-calculation li,
+.additional-considerations li,
+.development-vs-api li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.token-calculation li:before,
+.additional-considerations li:before,
+.development-vs-api li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.cost-breakdown-table,
+.final-cost-table,
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.cost-breakdown-table th,
+.final-cost-table th,
+.summary-table th {
+    background: var(--primary);
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cost-breakdown-table td,
+.final-cost-table td,
+.summary-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.cost-breakdown-table tr:last-child td,
+.final-cost-table tr:last-child td,
+.summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.cost-breakdown-table tr:nth-child(even),
+.final-cost-table tr:nth-child(even),
+.summary-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.subtotal-row,
+.total-row,
+.batch-row {
+    background-color: rgba(67, 97, 238, 0.1) !important;
+    font-weight: 600;
+}
+
+.subtotal-row td,
+.total-row td,
+.batch-row td {
+    color: var(--text-dark) !important;
+    font-weight: 600;
+}
+
+.batch-discount {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--success);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.discount-calculation {
+    background: rgba(6, 214, 160, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.development-vs-api {
+    background: rgba(255, 209, 102, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--warning);
+    margin: 2rem 0;
+}
+
+.development-vs-api p {
+    margin-bottom: 1rem;
+}
+
+.cost-summary {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--primary);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
 /* Tech Stack Section */
 .tech-section {
     margin-bottom: 5rem;
@@ -1093,6 +1277,23 @@ p {
     font-size: 1.2rem;
     margin-bottom: 3rem;
     opacity: 0.9;
+}
+
+.demo-notice {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+}
+
+.demo-notice p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 /* Footer */
@@ -1362,6 +1563,20 @@ p {
     .api-pricing-table td {
         padding: 0.6rem;
     }
+    
+    .detailed-cost-analysis {
+        padding: 2rem;
+    }
+    
+    .cost-breakdown-table th,
+    .cost-breakdown-table td,
+    .final-cost-table th,
+    .final-cost-table td,
+    .summary-table th,
+    .summary-table td {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1397,22 +1612,16 @@ p {
         overflow-x: auto;
         white-space: nowrap;
     }
-}
-
-/* Demo Notice Styling - Add to Call to Action Section */
-.demo-notice {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: var(--border-radius-md);
-    padding: 1rem 2rem;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: inline-block;
-}
-
-.demo-notice p {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 600;
+    
+    .detailed-cost-analysis {
+        padding: 1.5rem;
+    }
+    
+    .detailed-cost-analysis h4 {
+        font-size: 1.2rem;
+    }
+    
+    .detailed-cost-analysis h5 {
+        font-size: 1rem;
+    }
 }
