@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
     <title>MediXtract | AI-Powered Patient Data Extraction</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PoltorProgrammer/MediXtract/refs/heads/main/images/LOGO_MediXtract.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,22 +50,24 @@
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="#vision" class="nav-link" onclick="closeMobileMenu()" data-en="Vision" data-de="Vision">Vision</a>
-        <a href="#architecture" class="nav-link" onclick="closeMobileMenu()" data-en="Architecture" data-de="Architektur">Architecture</a>
-        <a href="#features" class="nav-link" onclick="closeMobileMenu()" data-en="Features" data-de="Funktionen">Features</a>
-        <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
-        <a href="#budget" class="nav-link" onclick="closeMobileMenu()" data-en="Budget" data-de="Budget">Budget</a>
-        <a href="#tech" class="nav-link" onclick="closeMobileMenu()" data-en="Technology" data-de="Technologie">Technology</a>
-        
-        <div class="mobile-lang-buttons">
-            <button class="navbar-lang-btn active" onclick="switchLanguage('en'); closeMobileMenu();">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" alt="English">
-                EN
-            </button>
-            <button class="navbar-lang-btn" onclick="switchLanguage('de'); closeMobileMenu();">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" alt="German">
-                DE
-            </button>
+        <div class="mobile-nav-content">
+            <a href="#vision" class="nav-link" onclick="closeMobileMenu()" data-en="Vision" data-de="Vision">Vision</a>
+            <a href="#architecture" class="nav-link" onclick="closeMobileMenu()" data-en="Architecture" data-de="Architektur">Architecture</a>
+            <a href="#features" class="nav-link" onclick="closeMobileMenu()" data-en="Features" data-de="Funktionen">Features</a>
+            <a href="#roadmap" class="nav-link" onclick="closeMobileMenu()" data-en="Roadmap" data-de="Fahrplan">Roadmap</a>
+            <a href="#budget" class="nav-link" onclick="closeMobileMenu()" data-en="Budget" data-de="Budget">Budget</a>
+            <a href="#tech" class="nav-link" onclick="closeMobileMenu()" data-en="Technology" data-de="Technologie">Technology</a>
+            
+            <div class="mobile-lang-buttons">
+                <button class="navbar-lang-btn active" onclick="switchLanguage('en'); closeMobileMenu();">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" alt="English">
+                    EN
+                </button>
+                <button class="navbar-lang-btn" onclick="switchLanguage('de'); closeMobileMenu();">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" alt="German">
+                    DE
+                </button>
+            </div>
         </div>
     </div>
 
@@ -115,10 +117,6 @@
                 </div>
                 <p><strong>This system is designed to:</strong></p>
                 <div class="checkmarks">
-                    <div class="checkmark-item">
-                        <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                        <span>Run offline on a laptop traveling between hospitals</span>
-                    </div>
                     <div class="checkmark-item">
                         <div class="checkmark-icon"><i class="fas fa-check"></i></div>
                         <span>Reduce human workload and errors</span>
@@ -399,104 +397,91 @@
                 <h4><i class="fas fa-tag"></i> API Pricing Estimates</h4>
                 <p>Below are approximate costs for the key AI services we'll utilize in this project for a single user:</p>
                 
-                <table class="api-pricing-table">
-                    <thead>
-                        <tr>
-                            <th>AI Model/API</th>
-                            <th>Pricing Structure</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       <tr>
-                            <td class="api-name"><i class="fas fa-robot"></i> Claude 3.5 Sonnet (Anthropic) - Recommended</td>
-                            <td>$3 per 1M input tokens<br>$15 per 1M output tokens</td>
-                        </tr>
-                        <tr>
-                            <td class="api-name"><i class="fas fa-robot"></i> GPT-4o (OpenAI)</td>
-                            <td>$10 per 1M input tokens<br>$30 per 1M output tokens</td>
-                        </tr> 
-                        <tr>
-                            <td class="api-name"><i class="fas fa-robot"></i> Gemini 1.5 Pro (Google)</td>
-                            <td>$7 per 1M input tokens<br>$14 per 1M output tokens</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table class="api-pricing-table">
+                        <thead>
+                            <tr>
+                                <th>AI Model/API</th>
+                                <th>Pricing Structure</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                                <td class="api-name"><i class="fas fa-robot"></i> Claude 3.5 Sonnet (Anthropic) - Recommended</td>
+                                <td>$3 per 1M input tokens<br>$15 per 1M output tokens</td>
+                            </tr>
+                            <tr>
+                                <td class="api-name"><i class="fas fa-robot"></i> GPT-4o (OpenAI)</td>
+                                <td>$10 per 1M input tokens<br>$30 per 1M output tokens</td>
+                            </tr> 
+                            <tr>
+                                <td class="api-name"><i class="fas fa-robot"></i> Gemini 1.5 Pro (Google)</td>
+                                <td>$7 per 1M input tokens<br>$14 per 1M output tokens</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 
                 <div class="pricing-note">
                     <strong>* Note:</strong> Cost updated as of June 04, 2025.
                 </div>
                 
-                <div class="detailed-cost-analysis">
-                    <h4><i class="fas fa-chart-line"></i> Cost Analysis — Based on Actual Registry Data</h4>
+                <h3>Complete Registry Cost Analysis</h3>
+                <!-- New content about Hidden Costs in LLM APIs -->
+                <div class="hidden-costs-section">
+                    <h4>Hidden Costs in LLM APIs: Incremental Processing and Recovery Strategies</h4>
+                    <p>When evaluating the cost of implementing LLM-based systems, developers often focus solely on the published prices per input and output token. However, three critical factors can multiply real costs: incremental processing, retries and fallbacks, and context overhead. Understanding these elements is essential for realistic budget planning.</p>
                     
-                    <div class="cost-scenario">
-                        <h5><i class="fas fa-exclamation-triangle"></i> Hidden Costs in LLM APIs: Incremental Processing and Recovery Strategies</h5>
-                        <p>When evaluating the cost of implementing LLM-based systems, developers often focus solely on the published prices per input and output token. However, three critical factors can multiply real costs: incremental processing, retries and fallbacks, and context overhead. Understanding these elements is essential for realistic budget planning.</p>
-                        
-                        <div class="subsection">
-                            <h5><i class="fas fa-cogs"></i> Incremental Processing:</h5>
-                            <p>LLMs don't process information like traditional systems. Instead of executing a deterministic function, they "reason" through multiple iterations, especially in complex tasks. A document analysis system that appears to require a single call can break down into multiple steps:</p>
-                            <ul> 
-                                <li><strong>Structure identification</strong>: First call to map document sections</li> 
-                                <li><strong>Granular extraction</strong>: Additional calls for each identified section</li> 
-                                <li><strong>Cross-validation</strong>: Consistency verification between extracted elements</li> 
-                                <li><strong>Refinement</strong>: Additional iterations to improve accuracy</li> 
-                            </ul>
-                            <p>This pattern is particularly pronounced in multi-agent systems, where each agent must communicate intermediate results, generating a cascade effect. A process initially estimated at 1,000 tokens can easily consume 4,000 tokens when properly implemented.</p>
-                        </div>
-                        
-                        <div class="subsection">
-                            <h5><i class="fas fa-redo"></i> Retries and Fallbacks:</h5>
-                            <p>Production LLMs must handle multiple types of failures that generate additional costs:</p>
-                            <ul>
-                                <li><strong>Rate limiting and timeouts</strong>: APIs have rate limits that require implementing exponential backoff strategies. Each retry consumes additional tokens.</li>
-                                <li><strong>Malformed responses</strong>: LLMs occasionally generate outputs that don't meet the expected format. A robust system must detect these cases and request regeneration, effectively doubling the cost of those calls.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="subsection">
-                            <h5><i class="fas fa-memory"></i> Context Overhead and Caching Optimization</h5>
-                            <p>Each call to an LLM must include certain context: system instructions and other relevant data.</p>
-                            <p>In an architecture with multiple specialized agents, each must know not only its specific domain, but also the results of other agents. This can increase input token volume by including inter-agent information.</p>
-                            
-                            <div class="checkmarks"> 
-                                <h6><strong>Solution: Intelligent Context Caching</strong></h6>
-                                <p>Implementing caching strategies can drastically reduce these costs:</p>
-                                <div class="checkmark-item">
-                                    <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                                    <span><strong>Prefix caching</strong>: Leverage some providers' capabilities to cache prompt prefixes, reducing repetitive context costs</span>
-                                </div>
-                                <div class="checkmark-item">
-                                    <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                                    <span><strong>Context compression</strong>: Implement algorithms to summarize long histories while maintaining relevant information</span>
-                                </div>
-                                <div class="checkmark-item">
-                                    <div class="checkmark-icon"><i class="fas fa-check"></i></div>
-                                    <span><strong>Session management</strong>: Maintain persistent context between related calls</span>
-                                </div>
-                                <p>A well-optimized system with caching can reduce context costs by 60-80%, especially in long sessions or systems with high pattern repetition.</p> 
-                            </div>
-                        </div>
-                    </div>
+                    <h5><strong>Incremental Processing:</strong></h5>
+                    <p>LLMs don't process information like traditional systems. Instead of executing a deterministic function, they "reason" through multiple iterations, especially in complex tasks. A document analysis system that appears to require a single call can break down into multiple steps:</p>
+                    <ul> 
+                        <li><strong>Structure identification</strong>: First call to map document sections</li> 
+                        <li><strong>Granular extraction</strong>: Additional calls for each identified section</li> 
+                        <li><strong>Cross-validation</strong>: Consistency verification between extracted elements</li> 
+                        <li><strong>Refinement</strong>: Additional iterations to improve accuracy</li> 
+                    </ul>
+                    <p>This pattern is particularly pronounced in multi-agent systems, where each agent must communicate intermediate results, generating a cascade effect. A process initially estimated at 1,000 tokens can easily consume 4,000 tokens when properly implemented.</p>
                     
-                    <div class="cost-scenario">
-                        <h5><i class="fas fa-file-alt"></i> Real-World Data Volume</h5>
-                        <p><strong>Retrospective Data:</strong> ~1,100 existing patients in registry, each with 5-15 documents (operative reports, discharge summaries, pathology results)</p>
-                        <p><strong>Prospective Data:</strong> ~50 new cases per year in Switzerland (~4 new patients per month)</p>
-                    </div>
+                    <h5><strong>Retries and Fallbacks:</strong></h5>
+                    <p>Production LLMs must handle multiple types of failures that generate additional costs:</p>
+                    <p><strong>Rate limiting and timeouts</strong>: APIs have rate limits that require implementing exponential backoff strategies. Each retry consumes additional tokens.</p>
+                    <p><strong>Malformed responses</strong>: LLMs occasionally generate outputs that don't meet the expected format. A robust system must detect these cases and request regeneration, effectively doubling the cost of those calls.</p>
                     
-                    <div class="cost-scenario">
-                        <h5><i class="fas fa-file-alt"></i> Updated Volume Reality Check (Accounting for Hidden Costs)</h5>
-                        <ul>
-                            <li>1,100 patients × 10 documents × 700 words = <strong>7,700,000 words</strong></li>
-                            <li>7.7M words × 1.5 tokens/word = <strong>~11,550,000 base input tokens</strong></li>
-                            <li>Processing overhead (4x multiplier): <strong>~46,200,000 total input tokens</strong></li>
-                            <li>Output tokens (structured data): <strong>~2,500,000 tokens</strong></li>
+                    <h5><strong>Context Overhead and Caching Optimization</strong></h5>
+                    <p>Each call to an LLM must include certain context: system instructions and other relevant data.</p>
+                    <p>In an architecture with multiple specialized agents, each must know not only its specific domain, but also the results of other agents. This can increase input token volume by including inter-agent information.</p>
+                    
+                    <div class="highlight"> 
+                        <h6><strong>Solution: Intelligent Context Caching</strong></h6>
+                        <p>Implementing caching strategies can drastically reduce these costs:</p>
+                        <ul> 
+                            <li><strong>Prefix caching</strong>: Leverage some providers' capabilities to cache prompt prefixes, reducing repetitive context costs</li> 
+                            <li><strong>Context compression</strong>: Implement algorithms to summarize long histories while maintaining relevant information</li> 
+                            <li><strong>Session management</strong>: Maintain persistent context between related calls</li> 
                         </ul>
+                        <p>A well-optimized system with caching can reduce context costs by 60-80%, especially in long sessions or systems with high pattern repetition.</p> 
                     </div>
-                    
-                    <div class="total-cost-calculation">
-                        <h5><i class="fas fa-calculator"></i> Realistic Complete Registry Cost — Claude Sonnet 4 Batch</h5>
+                </div>
+                
+                <div class="cost-scenario">
+                    <h5><i class="fas fa-file-alt"></i> Real-World Data Volume</h5>
+                    <p><strong>Retrospective Data:</strong> ~1,100 existing patients in registry, each with 5-15 documents (operative reports, discharge summaries, pathology results)</p>
+                    <p><strong>Prospective Data:</strong> ~50 new cases per year in Switzerland (~4 new patients per month)</p>
+                </div>
+                
+                <div class="cost-scenario">
+                    <h5><i class="fas fa-file-alt"></i> Updated Volume Reality Check (Accounting for Hidden Costs)</h5>
+                    <ul>
+                        <li>1,100 patients × 10 documents × 700 words = <strong>7,700,000 words</strong></li>
+                        <li>7.7M words × 1.5 tokens/word = <strong>~11,550,000 base input tokens</strong></li>
+                        <li>Processing overhead (4x multiplier): <strong>~46,200,000 total input tokens</strong></li>
+                        <li>Output tokens (structured data): <strong>~2,500,000 tokens</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="total-cost-calculation">
+                    <h5><i class="fas fa-calculator"></i> Realistic Complete Registry Cost — Claude Sonnet 4 Batch</h5>
+                    <div class="table-container">
                         <table class="cost-breakdown-table">
                             <thead>
                                 <tr>
@@ -531,57 +516,57 @@
                                 </tr>
                             </tbody>
                         </table>
-
-                        <div class="table-note">
-                            <strong>* Note:</strong> Cost updated as of June 04, 2025, including realistic processing overhead.
-                        </div>
-                    </div>
-                    
-                    <div class="cost-breakdown-insights">
-                        <h5><i class="fas fa-lightbulb"></i> Cost Per Unit Analysis</h5>
-                        <div class="unit-costs">
-                            <div class="unit-cost-card">
-                                <h6>Per Patient</h6>
-                                <div class="cost-value">$0.084</div>
-                                <p>$92.55 ÷ 1,100 patients</p>
-                            </div>
-                            <div class="unit-cost-card">
-                                <h6>Per Document</h6>
-                                <div class="cost-value">$0.0084</div>
-                                <p>$92.55 ÷ 11,000 documents</p>
-                            </div>
-                            <div class="unit-cost-card">
-                                <h6>Per Word</h6>
-                                <div class="cost-value">$0.000012</div>
-                                <p>$92.55 ÷ 7.7M words</p>
-                            </div>
-                        </div>
                     </div>
 
-                    <div class="batch-discount">
-                        <h5><i class="fas fa-percentage"></i> Cost Optimization Strategies</h5>
-                        <p>Several strategies can dramatically reduce processing costs by optimizing how and when resources are used:</p>
-                        <ul>
-                            <li>
-                                <strong>Batch API Processing</strong>: Group API calls into scheduled batches rather than sending them individually. This approach qualifies for volume discounts (up to <strong>50% off</strong> Claude API costs), making it highly efficient for large-scale operations.
-                            </li>
-                            <li>
-                                <strong>Template Recognition</strong>: Detect and cache the structure of frequently used document formats (e.g., invoices or reports). By reusing these templates, the system avoids redundant parsing, reducing token usage and accelerating processing.
-                            </li>
-                            <li>
-                                <strong>Gradual Processing</strong>: Distribute the workload of retrospective document analysis over <strong>12–24 months</strong>. This avoids sudden spikes in cost and aligns processing with budget cycles, enabling sustainable long-term scaling.
-                            </li>
-                            <li>
-                                <strong>Smart OCR</strong>: Apply a tiered OCR strategy. Use free tools like Tesseract for clean, simple documents. Only utilize paid OCR solutions (e.g., Google Vision or ABBYY) when higher accuracy or advanced features (like table extraction or handwriting recognition) are required.
-                            </li>
-                        </ul>
-                        <p>By combining these methods, we ensure high performance and scalability while keeping costs under control.</p>
-
-                        <div class="discount-calculation">
-                            <strong>Realistic Monthly Costs:</strong><br>
-                            • Retrospective processing phase: <strong>$7.71/month</strong><br>
-                            • Prospective-only phase: <strong>$4.25/month</strong>
+                    <div class="table-note">
+                        <strong>* Note:</strong> Cost updated as of June 04, 2025, including realistic processing overhead.
+                    </div>
+                </div>
+                
+                <div class="cost-breakdown-insights">
+                    <h5><i class="fas fa-lightbulb"></i> Cost Per Unit Analysis</h5>
+                    <div class="unit-costs">
+                        <div class="unit-cost-card">
+                            <h6>Per Patient</h6>
+                            <div class="cost-value">$0.084</div>
+                            <p>$92.55 ÷ 1,100 patients</p>
                         </div>
+                        <div class="unit-cost-card">
+                            <h6>Per Document</h6>
+                            <div class="cost-value">$0.0084</div>
+                            <p>$92.55 ÷ 11,000 documents</p>
+                        </div>
+                        <div class="unit-cost-card">
+                            <h6>Per Word</h6>
+                            <div class="cost-value">$0.000012</div>
+                            <p>$92.55 ÷ 7.7M words</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-discount">
+                    <h5><i class="fas fa-percentage"></i> Cost Optimization Strategies</h5>
+                    <p>Several strategies can dramatically reduce processing costs by optimizing how and when resources are used:</p>
+                    <ul>
+                        <li>
+                            <strong>Batch API Processing</strong>: Group API calls into scheduled batches rather than sending them individually. This approach qualifies for volume discounts (up to <strong>50% off</strong> Claude API costs), making it highly efficient for large-scale operations.
+                        </li>
+                        <li>
+                            <strong>Template Recognition</strong>: Detect and cache the structure of frequently used document formats (e.g., invoices or reports). By reusing these templates, the system avoids redundant parsing, reducing token usage and accelerating processing.
+                        </li>
+                        <li>
+                            <strong>Gradual Processing</strong>: Distribute the workload of retrospective document analysis over <strong>12–24 months</strong>. This avoids sudden spikes in cost and aligns processing with budget cycles, enabling sustainable long-term scaling.
+                        </li>
+                        <li>
+                            <strong>Smart OCR</strong>: Apply a tiered OCR strategy. Use free tools like Tesseract for clean, simple documents. Only utilize paid OCR solutions (e.g., Google Vision or ABBYY) when higher accuracy or advanced features (like table extraction or handwriting recognition) are required.
+                        </li>
+                    </ul>
+                    <p>By combining these methods, we ensure high performance and scalability while keeping costs under control.</p>
+
+                    <div class="discount-calculation">
+                        <strong>Realistic Monthly Costs:</strong><br>
+                        • Retrospective processing phase: <strong>$7.71/month</strong><br>
+                        • Prospective-only phase: <strong>$4.25/month</strong>
                     </div>
                 </div>
             </div>
@@ -705,8 +690,8 @@
             </div>
         </section>
 
-        <!-- Rest of German content sections following the same structure... -->
-        <!-- [I'll include the rest of the German content sections here following the same pattern as the English sections] -->
+        <!-- Similar German sections would continue here... -->
+        <!-- For brevity, I'm showing just the structure -->
 
     </div>
     
