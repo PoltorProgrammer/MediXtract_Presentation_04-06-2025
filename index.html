@@ -431,15 +431,17 @@
                 <div class="hidden-costs-section">
                     <h4>Hidden Costs in LLM APIs: Incremental Processing and Recovery Strategies</h4>
                     <p>When evaluating the cost of implementing LLM-based systems, developers often focus solely on the published prices per input and output token. However, three critical factors can multiply real costs: incremental processing, retries and fallbacks, and context overhead. Understanding these elements is essential for realistic budget planning.</p>
-                    
+                    <div class="subsection">
                     <h5><strong>Incremental Processing:</strong></h5>
                     <p>LLMs don't process information like traditional systems. Instead of executing a deterministic function, they "reason" through multiple iterations, especially in complex tasks. A document analysis system that appears to require a single call can break down into multiple steps:</p>
-                    <ul> 
-                        <li><strong>Structure identification</strong>: First call to map document sections</li> 
-                        <li><strong>Granular extraction</strong>: Additional calls for each identified section</li> 
-                        <li><strong>Cross-validation</strong>: Consistency verification between extracted elements</li> 
-                        <li><strong>Refinement</strong>: Additional iterations to improve accuracy</li> 
-                    </ul>
+ 
+                        <p><strong>Structure identification</strong>: First call to map document sections</p> 
+                        <p><strong>Granular extraction</strong>: Additional calls for each identified section</p> 
+                        <p><strong>Cross-validation</strong>: Consistency verification between extracted elements</p> 
+                        <p><strong>Refinement</strong>: Additional iterations to improve accuracy</li> 
+					</div>
+					
+					<div class="subsection">
                     <p>This pattern is particularly pronounced in multi-agent systems, where each agent must communicate intermediate results, generating a cascade effect. A process initially estimated at 1,000 tokens can easily consume 4,000 tokens when properly implemented.</p>
                     
                     <h5><strong>Retries and Fallbacks:</strong></h5>
@@ -450,14 +452,15 @@
                     <h5><strong>Context Overhead and Caching Optimization</strong></h5>
                     <p>Each call to an LLM must include certain context: system instructions and other relevant data.</p>
                     <p>In an architecture with multiple specialized agents, each must know not only its specific domain, but also the results of other agents. This can increase input token volume by including inter-agent information.</p>
-                    
+                    </div>
+					
                     <div class="highlight"> 
                         <h6><strong>Solution: Intelligent Context Caching</strong></h6>
                         <p>Implementing caching strategies can drastically reduce these costs:</p>
                         <ul> 
-                            <li><strong>Prefix caching</strong>: Leverage some providers' capabilities to cache prompt prefixes, reducing repetitive context costs</li> 
-                            <li><strong>Context compression</strong>: Implement algorithms to summarize long histories while maintaining relevant information</li> 
-                            <li><strong>Session management</strong>: Maintain persistent context between related calls</li> 
+                            <p><strong>Prefix caching</strong>: Leverage some providers' capabilities to cache prompt prefixes, reducing repetitive context costs</p> 
+                            <p><strong>Context compression</strong>: Implement algorithms to summarize long histories while maintaining relevant information</p> 
+                            <p><strong>Session management</strong>: Maintain persistent context between related calls</p> 
                         </ul>
                         <p>A well-optimized system with caching can reduce context costs by 60-80%, especially in long sessions or systems with high pattern repetition.</p> 
                     </div>
